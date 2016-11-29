@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.v7.widget.CardView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/icon_carrito_lista"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ejemplo_icon" />
+
+
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/nombre_comida"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="16dp"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:text="@string/titulo.comida.lista.comida"
+                    />
+
+                <TextView
+                    android:textColor="@color/colorWhite"
+                    android:id="@+id/precio_comida"
+                    android:paddingRight="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/precio.comida.lista.comida"
+                    android:paddingBottom="16dp"
+                    android:paddingLeft="16dp"
+                    android:textSize="12dp"/>
+
+
+            </LinearLayout>
+        <Button
+            android:id="@+id/borrar_carrito"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:textColor="@color/colorPrimary"
+            android:text="x"
+            android:layout_gravity="top|right"
+            android:background="@color/colorWhite"/>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

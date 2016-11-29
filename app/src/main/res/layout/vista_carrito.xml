@@ -1,0 +1,41 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:overScrollMode="always"
+    tools:context="com.itchihuahuaii.aplicacioncafeteria.FragmentComidas">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/reciclador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/pagar_carrito"
+        android:textAllCaps="false"
+        android:background="@drawable/principal"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="26dp" />
+
+    <TextView
+        android:id="@+id/total_carrito"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:text="Tu total de compra es : "
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+        android:layout_alignBaseline="@+id/pagar_carrito"
+        android:layout_alignBottom="@+id/pagar_carrito"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>

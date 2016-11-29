@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Aplicacion Cafeteria</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint.usuario.login">Ingresa tu nick</string>
+    <string name="hint.password.login">Ingresa tu password</string>
+    <string name="boton.ingresar.login">Ingresar</string>
+    <string name="tab_comidas">Comidas</string>
+    <string name="tab_bebidas">Bebidas</string>
+    <string name="tab_frituras">Frituras</string>
+    <string name="titulo.comida.lista.comida">Titulo del producto</string>
+    <string name="precio.comida.lista.comida">Precio Comida</string>
+    <string name="menu_buscar">Buscar</string>
+    <string name="menu_carrito">Carrito</string>
+</resources>
