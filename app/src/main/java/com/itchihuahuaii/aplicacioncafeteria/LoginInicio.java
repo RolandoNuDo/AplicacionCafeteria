@@ -83,7 +83,7 @@ public class LoginInicio extends AppCompatActivity {
 
 
         datos= Consultas.obtenerInstancia(getApplicationContext());
-        HttpURLConnection urlConnection = null;
+        /*HttpURLConnection urlConnection = null;
 
         List<Cliente> listaPost = new ArrayList<>();
 
@@ -130,14 +130,16 @@ public class LoginInicio extends AppCompatActivity {
         }
 
 
-
+ */
         try{
+            /*
             for(int i=0;i<listaPost.size();i++){
                 datos.insertUsuario(listaPost.get(i).getNombre(),listaPost.get(i).getNick(),listaPost.get(i).getTipo(),listaPost.get(i).getPassword());
 
             }
 
             DatabaseUtils.dumpCursor(datos.getCursorQuery("SELECT * FROM usuario"));
+           */
             datos.insertUsuario("COCINA","cocina","COCINA","123");
             datos.insertUsuario("CLIENTE","cliente","CLIENTE","123");
             datos.insertUsuario("ADMIN","admin","ADMIN","123");
