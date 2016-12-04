@@ -95,6 +95,18 @@ public class FragmentAdmin extends Fragment {
             public void onClick(View view) {
                 Fragment aux = new FragmentEditBebida();
                 Bundle bundle = new Bundle();
+                bundle.putInt("TIPO",1);
+                aux.setArguments(bundle);
+                contexto.getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.contenedor_principal,aux,"edit_bebida").commit();
+
+            }
+        });
+        edit_insumo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment aux = new FragmentEditBebida();
+                Bundle bundle = new Bundle();
+                bundle.putInt("TIPO",2);
                 aux.setArguments(bundle);
                 contexto.getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.contenedor_principal,aux,"edit_bebida").commit();
 

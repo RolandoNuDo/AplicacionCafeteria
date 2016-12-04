@@ -23,8 +23,7 @@ public class AdaptadorCocina extends RecyclerView.Adapter<AdaptadorCocina.ViewHo
         public void onClick(ViewHolder holder, String idAlquiler);
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder
-    {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         // Referencias UI
         public TextView producto;
         public TextView precio;

@@ -15,9 +15,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
-
+/**
+ * Clase donde se ejecuta el login de la aplicacion
+ * @author: Aplicacion Cafeteria Sistemas Operativos Moviles
+ * @version: 1.0 12/2/2016
+ */
 public class FragmentCarrito extends Fragment {
 
     RecyclerView reciclador;
@@ -40,7 +45,13 @@ public class FragmentCarrito extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    
+    /**
+     * Metodo con la vista del fragment
+     * @param inflater Inflater
+     * @param container contenedor
+     * @param savedInstanceState instancia
+     * @return Devuelve la vista del fragment
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -56,7 +67,12 @@ public class FragmentCarrito extends Fragment {
         ma = (Principal) getActivity();
         String suma = ma.datos.getData("SELECT SUM(producto.precio) FROM producto,carrito,carrito_detalle " +
                 "WHERE carrito_detalle.id_producto=producto.id AND carrito_detalle.id_carrito=carrito.id AND carrito.id="+ma.getCarrito());
-        total.setText("Tu total es: "+suma+ " $ pesos ");
+        if(suma==null){
+            total.setText("Aun no tiene articulos");
+        }else {
+            total.setText("Tu total es: "+suma+ " $ pesos ");
+        }
+
         pagar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,7 +80,10 @@ public class FragmentCarrito extends Fragment {
                 Cursor c = ma.datos.getCursorQuery("SELECT producto.id , carrito_detalle.id FROM producto,carrito,carrito_detalle " +
                         "WHERE carrito_detalle.id_producto=producto.id AND carrito_detalle.id_carrito=carrito.id AND carrito.id="+ma.getCarrito());
                 DatabaseUtils.dumpCursor(c);
-                c.moveToFirst();
+                if(!c.moveToFirst()){
+                    Toast.makeText(getContext(), "Su carrito esta vacio", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 do {
                     String id = c.getString(0);
                     String cat = ma.datos.getData("SELECT id_categoria FROM producto WHERE id="+id);

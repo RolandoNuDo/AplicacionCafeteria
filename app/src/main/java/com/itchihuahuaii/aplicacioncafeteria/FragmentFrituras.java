@@ -22,7 +22,13 @@ public class FragmentFrituras extends Fragment {
         // Required empty public constructor
     }
 
-
+    /**
+     * Metodo con la vista del fragment
+     * @param inflater Inflater
+     * @param container contenedor
+     * @param savedInstanceState instancia
+     * @return Devuelve la vista del fragment
+     */
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

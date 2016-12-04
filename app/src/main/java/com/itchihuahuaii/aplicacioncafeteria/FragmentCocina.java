@@ -17,7 +17,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
+/**
+ * Clase donde se ejecuta el login de la aplicacion
+ * @author: Aplicacion Cafeteria Sistemas Operativos Moviles
+ * @version: 1.0 12/2/2016
+ */
 public class FragmentCocina extends Fragment {
 
     RecyclerView reciclador;
@@ -28,7 +32,13 @@ public class FragmentCocina extends Fragment {
         // Required empty public constructor
     }
 
-
+    /**
+     * Metodo con la vista del fragment
+     * @param inflater Inflater
+     * @param container contenedor
+     * @param savedInstanceState instancia
+     * @return Devuelve la vista del fragment
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

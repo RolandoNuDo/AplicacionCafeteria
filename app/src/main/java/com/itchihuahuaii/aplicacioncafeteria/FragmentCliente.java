@@ -22,7 +22,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Clase donde se ejecuta el login de la aplicacion
+ * @author: Aplicacion Cafeteria Sistemas Operativos Moviles
+ * @version: 1.0 12/2/2016
+ */
 public class FragmentCliente extends Fragment {
 
     private AppBarLayout appBarLayout;
@@ -30,7 +34,13 @@ public class FragmentCliente extends Fragment {
     private ViewPager viewPager;
     public FragmentCliente(){}
 
-
+    /**
+     * Metodo con la vista del fragment
+     * @param inflater Inflater
+     * @param container contenedor
+     * @param savedInstanceState instancia
+     * @return Devuelve la vista del fragment
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,6 +55,11 @@ public class FragmentCliente extends Fragment {
 
         return view;
     }
+
+    /**
+     * Metodo donde se insertar las pestañas al fragment
+     * @param container
+     */
     private void insertarTabs(ViewGroup container) {
         View padre=(View)container.getParent();
         appBarLayout =(AppBarLayout)padre.findViewById(R.id.appBar);
@@ -52,6 +67,11 @@ public class FragmentCliente extends Fragment {
         tabLayout.setTabTextColors(Color.parseColor("#FFFFFF"),Color.parseColor("#FFFFFF"));
         appBarLayout.addView(tabLayout);
     }
+
+    /**
+     * Metodo donde se asignan los fragment que tendran las comidas
+     * @param viewPager ViewPager declarado en el layout
+     */
     private void poblarViewPager(ViewPager viewPager) {
         AdaptadorSecciones adapter = new AdaptadorSecciones(getChildFragmentManager());
         adapter.addFragment(new FragmentComidas(), getString(R.string.tab_comidas));
@@ -59,15 +79,26 @@ public class FragmentCliente extends Fragment {
         adapter.addFragment(new FragmentFrituras(), getString(R.string.tab_frituras));
         viewPager.setAdapter(adapter);
     }
+
+    /**
+     * Metodo cuando se sale del fragment
+     */
     public void onDestroyView() {
         super.onDestroyView();
         appBarLayout.removeView(tabLayout);
     }
 
+    /**
+     * Clase donde se añaden las pestañas
+     */
     public class AdaptadorSecciones extends FragmentStatePagerAdapter {
         private final List<Fragment> fragmentos = new ArrayList<>();
         private final List<String> titulosFragmentos = new ArrayList<>();
 
+        /**
+         * Constructor
+         * @param fm FragmentManager para hacer las transiciones
+         */
         public AdaptadorSecciones(FragmentManager fm) {
             super(fm);
         }
@@ -98,7 +129,9 @@ public class FragmentCliente extends Fragment {
         }
     }
 
-
+    /**
+     * Metodo cuando se cierra un fragment
+     */
     @Override
     public void onDetach() {
         super.onDetach();

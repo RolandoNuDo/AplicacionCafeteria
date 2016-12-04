@@ -59,8 +59,12 @@ public class FragmentAddBebida extends Fragment {
             precio_bebida.setText(precio);
             cantidad_bebida.setText(cantidad);
         }
-        if (getArguments().getInt("tipo") == 2) {
+        if (getArguments().getInt("tipo") == 2 || getArguments().getInt("tipo") == 6) {
             precio_bebida.setVisibility(View.GONE);
+            String nombre = getArguments().getString("NOMBRE");
+            String cantidad = getArguments().getString("CANTIDAD");
+            nombre_bebida.setText(nombre);
+            cantidad_bebida.setText(cantidad);
         } else if (getArguments().getInt("tipo") == 3) {
             contexto.setProducto(Integer.parseInt("" + contexto.datos.insertProducto("temporal", 0, 1, 0, R.drawable.hamburguesa)));
             Log.e("Este es el id", "" + contexto.getProducto());
@@ -153,6 +157,21 @@ public class FragmentAddBebida extends Fragment {
                         values.put("precio",Integer.parseInt(precio_bebida.getText().toString()));
 
                         if (contexto.datos.updateQuery(getArguments().getInt("ID"),"id","producto",values)) {
+                            Toast.makeText(contexto, "Se ha actualizado correctamente", Toast.LENGTH_SHORT).show();
+                            Fragment aux = contexto.getSupportFragmentManager().findFragmentByTag("admin");
+                            contexto.getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_principal, aux).addToBackStack(null).commit();
+                        }
+                    } catch (Exception e) {
+                        Toast.makeText(contexto, "Datos no validos", Toast.LENGTH_SHORT).show();
+                    }
+                }else if (getArguments().getInt("tipo") == 6) {
+                    try {
+                        int cantidad = Integer.parseInt(cantidadAux);
+                        ContentValues values = new ContentValues();
+                        values.put("nombre",nombre);
+                        values.put("cantidad",cantidad);
+
+                        if (contexto.datos.updateQuery(getArguments().getInt("ID"),"id","insumo",values)) {
                             Toast.makeText(contexto, "Se ha actualizado correctamente", Toast.LENGTH_SHORT).show();
                             Fragment aux = contexto.getSupportFragmentManager().findFragmentByTag("admin");
                             contexto.getSupportFragmentManager().beginTransaction().replace(R.id.contenedor_principal, aux).addToBackStack(null).commit();

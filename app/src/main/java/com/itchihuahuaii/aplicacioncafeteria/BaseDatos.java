@@ -45,7 +45,7 @@ public class BaseDatos extends SQLiteOpenHelper {
 
         // TABLA CARRITO_DETALLE
         db.execSQL("CREATE TABLE carrito_detalle(id INTEGER PRIMARY KEY AUTOINCREMENT,id_carrito INTEGER NOT NULL REFERENCES carrito(id), " +
-                "id_producto INTEGER NOT NULL REFERENCES producto(id), precio_venta INTEGER NOT NULL, estado TEXT NOT NULL)");
+                "id_producto INTEGER NOT NULL REFERENCES producto(id) ON DELETE CASCADE, precio_venta INTEGER NOT NULL, estado TEXT NOT NULL)");
 
         //TABLA PRODUCTO
         db.execSQL("CREATE TABLE producto(id INTEGER PRIMARY KEY AUTOINCREMENT,nombre TEXT UNIQUE NOT NULL," +
@@ -63,7 +63,7 @@ public class BaseDatos extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE insumo(id INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT UNIQUE NOT NULL,cantidad INTEGER NOT NULL CHECK(cantidad>=0),imagen INTEGER NOT NULL)");
 
         // TABLA INSUMO_PRODUCTO
-        db.execSQL("CREATE TABLE insumo_producto(id INTEGER PRIMARY KEY AUTOINCREMENT,id_insumo INTEGER NOT NULL REFERENCES insumo(id),id_producto INTEGER NOT NULL REFERENCES producto(id),uso INTEGER NOT NULL CHECK(uso>=0))");
+        db.execSQL("CREATE TABLE insumo_producto(id INTEGER PRIMARY KEY AUTOINCREMENT,id_insumo INTEGER NOT NULL REFERENCES insumo(id) ON DELETE CASCADE,id_producto INTEGER NOT NULL REFERENCES producto(id) ON DELETE CASCADE,uso INTEGER NOT NULL CHECK(uso>=0))");
     }
 
     @Override

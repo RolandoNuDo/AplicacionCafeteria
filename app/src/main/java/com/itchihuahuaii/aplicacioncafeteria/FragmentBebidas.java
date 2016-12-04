@@ -15,7 +15,11 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
+/**
+ * Fragment que muestra las bebidas
+ * @author: Aplicacion Cafeteria Sistemas Operativos Moviles
+ * @version: 1.0 12/2/2016
+ */
 public class FragmentBebidas extends Fragment {
 
     RecyclerView reciclador;
@@ -31,6 +35,14 @@ public class FragmentBebidas extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
     }
+
+    /**
+     * Metodo con la vista del fragment
+     * @param inflater Inflater
+     * @param container contenedor
+     * @param savedInstanceState instancia
+     * @return Devuelve la vista del fragment
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

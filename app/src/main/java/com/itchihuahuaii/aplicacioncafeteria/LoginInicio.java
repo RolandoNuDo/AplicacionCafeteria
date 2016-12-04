@@ -3,17 +3,13 @@ package com.itchihuahuaii.aplicacioncafeteria;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
-import android.os.AsyncTask;
 import android.os.StrictMode;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -26,14 +22,23 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
-import static java.security.AccessController.getContext;
+
+/**
+ * Clase donde se ejecuta el login de la aplicacion
+ * @author: Aplicacion Cafeteria Sistemas Operativos Moviles
+ * @version: 1.0 12/2/2016
+ */
 
 public class LoginInicio extends AppCompatActivity {
+
     EditText pass,nick;
     Button boton;
     public Consultas datos;
 
+    /**
+     * Metodo donde se crea la activity
+     * @param savedInstanceState Bundle inicial
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -133,6 +138,7 @@ public class LoginInicio extends AppCompatActivity {
             }
 
             DatabaseUtils.dumpCursor(datos.getCursorQuery("SELECT * FROM usuario"));
+            datos.insertUsuario("COCINA","cocina","COCINA","123");
             datos.insertUsuario("CLIENTE","cliente","CLIENTE","123");
             datos.insertUsuario("ADMIN","admin","ADMIN","123");
 
