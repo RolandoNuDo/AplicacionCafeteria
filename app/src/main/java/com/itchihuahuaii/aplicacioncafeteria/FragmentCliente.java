@@ -1,11 +1,8 @@
 package com.itchihuahuaii.aplicacioncafeteria;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
@@ -79,7 +76,6 @@ public class FragmentCliente extends Fragment {
         adapter.addFragment(new FragmentFrituras(), getString(R.string.tab_frituras));
         viewPager.setAdapter(adapter);
     }
-
     /**
      * Metodo cuando se sale del fragment
      */

@@ -2,11 +2,9 @@ package com.itchihuahuaii.aplicacioncafeteria;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +12,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 public class AdaptadorEditBebida extends RecyclerView.Adapter<AdaptadorEditBebida.ViewHolder> {
@@ -48,7 +45,7 @@ public class AdaptadorEditBebida extends RecyclerView.Adapter<AdaptadorEditBebid
                 public void onClick(View view) {
                     items.moveToPosition(getAdapterPosition());
                     Principal principal = (Principal)contexto;
-                    Fragment aux = principal.getSupportFragmentManager().findFragmentByTag("edit_bebida");
+                    Fragment aux = principal.getSupportFragmentManager().findFragmentByTag("admin");
 
                     if(tipo==1){
                         principal.datos.deleteQuery("producto WHERE id="+items.getInt(4));
